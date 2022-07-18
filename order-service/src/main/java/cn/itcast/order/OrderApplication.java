@@ -12,6 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 @MapperScan("cn.itcast.order.mapper")
 @SpringBootApplication
+//EnableFeignClients 自动装配开关  缺少clients = UserClient.class 会导致spring中没有UserClient对象，即UserClient没有实例化
+//clients = UserClient.class 可以为数组clients = {UserClient.class}
 @EnableFeignClients(clients = UserClient.class,defaultConfiguration = DefaultFeignConfiguration.class)
 public class OrderApplication {
 

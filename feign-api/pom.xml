@@ -17,6 +17,7 @@
     </properties>
 
     <dependencies>
+        <!--引入openfeign 依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>

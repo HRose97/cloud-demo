@@ -7,8 +7,6 @@ import cn.itcast.order.pojo.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-
 @Service
 public class OrderService {
 
@@ -25,13 +23,11 @@ public class OrderService {
         User user = userClient.findById(order.getUserId());
         // 3.封装user到Order
         order.setUser(user);
-
-        LocalDateTime.parse("");
-
         // 4.返回
         return order;
     }
 
+    //RestTemplate 远程调用方式
     /*@Autowired
     private RestTemplate restTemplate;
 

@@ -13,18 +13,21 @@ import java.time.format.DateTimeFormatter;
 @Slf4j
 @RestController
 @RequestMapping("/user")
-// @RefreshScope
+// @RefreshScope        nacos热配置的开关----自动刷新   方式一
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    // @Value("${pattern.dateformat}")
-    // private String dateformat;
+    //属性注解
+    //@NacosValue("${pattern.dateformat}")
+    //private String dateformat;
 
+    //nacos  方式二  属性注入方式  一般使用方式二
     @Autowired
     private PatternProperties properties;
 
+    //测试nacos环境共享属性
     @GetMapping("prop")
     public PatternProperties properties(){
         return properties;
@@ -37,6 +40,8 @@ public class UserController {
 
     /**
      * 路径： /user/110
+     * @RequestHeader 请求头是由spirng geteaway提供的过滤器  该过滤器是在请求中添加字段
+     * required = false  可以传可以不传
      *
      * @param id 用户id
      * @return 用户
